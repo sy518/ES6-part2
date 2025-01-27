@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Find and Findindex
+        let num = [40, 20, 4, 6, 8, 10, 40, 60];
+        // find give us first value
+        let result = num.find(function (item) {
+            return item < 10;
+        })
+
+
+        //  findInde give the position of value
+        let result2 = num.findIndex(function (item) {
+            return item < 10;
+        })
+
+        let result3 = num.find((item) => item > 20 && item < 50);
+        let result4 = num.findIndex((item) => item > 20 && item < 50)
+
+        console.log(result); // 4
+        console.log(result2); // 2
+        console.log(result3); //40
+        console.log(result4); //0
+
+
+        // Array of Object
+
+        let obj = [
+            { id: 133, name: "Sana" },
+            { id: 11, name: "Mehak" },
+            { id: 2, name: "Hina" },
+            { id: 214, name: "Jackie" },
+            { id: 55, name: "John" },
+
+        ]
+
+        function custom(item) {
+            return item.id < 20;
+            // return item.name > 20;  undefined -1
+        }
+        let ans = obj.find(custom);
+        let ans2 = obj.findIndex(custom);
+        console.log(ans, ans2);  //{id: 11, name: 'Mehak'} 1
+
+        // Arrow function is simple and bacis
+        // Arrow functionmai appna tis nai hota wo paraent ka this ly ke chalta ha
+
+        let data = [10, 20, 30, 40, 50];
+        // let numData = data.map(function(item){
+        //     return item * 2;
+        // })   [20, 40, 60, 80, 100] same output
+
+        let numData = data.map((item) => item * 2);
+        console.log(numData);
+
+        // function test() {
+        //     return 1
+        // }
+
+        // let test2 = function () {
+        //     return 1
+        // }
+
+        // let test3 = () => {
+        //     return 1
+        // }
+        // console.log(test());
+        // console.log(test2());
+        // console.log(test3());
+
+        // normal vs arrow
+
+        let newObj = {
+            name: "someone",
+            getName: function () {
+
+                console.log(this);
+            },
+            getNameArrow: () => {
+                console.log("arrow ", this);
+
+            }
+
+        }
+        newObj.getName();  //{name: 'someone', getName: ƒ, getNameArrow: ƒ}
+        newObj.getNameArrow();  //arrow Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+
+        // Classes
+
+        //  lass oop mai aati han
+        //  which is called inhertance(parantsClass  transfer somethings in childsClass)
+        // cunstracter are spachel tye ke function hoty ha jo kud call hpty han auto call
+        // her class ka ak  he constructor hata ha
+        // constructor mai wo chez hoti han j hamai lazmi call karani ha
+        // 2 chizein hoti ha variable or stucture /mathod
+        // mathod function or details haota ha or variable property haoti ha
+        // class ka variable na cap mai hota ha class ko ak variable main store kar ke call karaty han
+        // 
+
+        class Fruit {
+            name = "mango";
+            constructor() {
+                console.log(this.name);  // mango
+            }
+            getFruit(item) {
+                return item
+            }
+
+        }
+        let f1 = new Fruit
+       console.log(f1.getFruit("apple"));  // apple
+
+    //    Inheritancce
+    //    parant class ke kuch propery child class mai use hoti han
+    // child class mai constructor ko use karne ke  lye super() keyword use hota ha
+    // nai to error aye ga ReferenceError
+
+    class Person{
+        name = "alice";
+
+        constructor(){
+            console.log("hello");
+            
+        }
+        
+        eating() {
+            
+            console.log( `${this.name} is eating`);
+         }
+    }
+    class Boy extends Person{
+       
+        constructor(){
+            super()
+            console.log(`hello ${this.name}`);  //hello alice
+            
+        }
+        learning () {
+            console.log(`${this.name} is learning`);
+            
+        }
+    }
+    let xyz = new Person()
+    let abc = new Boy();
+    console.log(xyz, abc);      //Person {name: 'alice'},  Boy { name: 'alice' }
+    console.log(abc.learning());   //alice is learning
+    console.log(xyz.eating());   //alice is eating
+    
+    
+    
+
+    </script>
+</body>
+
+</html>
