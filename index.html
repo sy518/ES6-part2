@@ -156,7 +156,65 @@
     console.log(abc.learning());   //alice is learning
     console.log(xyz.eating());   //alice is eating
     
-    
+    // Lexical Scope for This
+        //  means this ke range khan tk ha
+        // lexical scope ke problam arrow function ke throw solve ke jati ha
+        // arrow function ka apna this nai hota wo parant ka this use karta ha
+
+        let myList = {
+            items: "furites",
+            Opptions: ["apple", "mango", "orange"],
+            getMyList: function () {
+                // console.log(this.item);   //furites
+                // console.log(this.Opption);  //(3) ['apple', 'mango', 'orange']
+
+                this.Opptions.map((item) => {
+                    console.log(this.items, item);
+
+                })
+
+            }
+
+        }
+        myList.getMyList()
+
+        // Rest Operator
+        // jb parameter amount ny ziyada ho .i.e 5 or 7 to sb ko get karne ke lye rest operator use hota ha
+        //  jb sb ko get karna hoto ...z ya phair a, ...z use karin ge to sb array ke form mai aa jaye gy
+        // ... ya singn ha rest opp
+        // rest opp keander function b pass ho sakta ha
+
+        // function dishes(a,b){
+        function dishes(...a) {   //['biryani', 'qurma', 'haleem', 'nehari', 'pulao', 'fish carry']
+            //function dishes(a,...z) {   //'qurma', 'haleem', 'nehari', 'pulao', 'fish carry']
+            console.log(dishes, a);  //'biryani' 'qurma
+
+        }
+        function hi() {
+            //  ['biryani', 'qurma', 'haleem', 'nehari', 'pulao', 'fish carry', ƒ]0: "biryani"1: "qurma"2: "haleem"3: "nehari"4: "pulao"5: "fish carry"6: ƒ hi()length: 7[[Prototype]]: Array(0)
+        }
+        dishes("biryani", "qurma", "haleem", "nehari", "pulao", "fish carry", hi)
+
+
+        // Promises
+        // undefine ak data type hoti 
+        // promises ka block tb execute karta ha jb code completely output day cuka hota ha
+
+       let say = "hello"
+        let promise = new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+               say = "Hello ,what is your name?"
+               resolve("Hina");
+                } 
+            ,2000);
+        })
+        promise.then(()=>{
+
+            console.log(promise);
+        })
+
+
     
 
     </script>
