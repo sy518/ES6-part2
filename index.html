@@ -214,6 +214,68 @@
             console.log(promise);
         })
 
+ // Global Function ko kahin h use kar sakte han
+        // Global function  2 ha dono ka output true ya false ho ga
+        //isFinite mai number value ane chye  
+        console.log(isFinite(10));  //true
+        console.log(isFinite(10 / 2));  //true
+        console.log(isFinite("a")); //false
+        console.log(isFinite({}));  //false 
+        console.log(isFinite(null)); //true
+        console.log(isFinite(undefined));  //false
+        // //    kya ya num nai ha
+        console.log(isNaN(10));  //false
+        console.log(isNaN("10"));  //false
+        console.log(isNaN("someone")); //true
+        console.log(isNaN({}));//true
+        console.log(isNaN(null)); //true
+        console.log(isNaN(undefined)) //true
+
+        // Destructuring Array
+        // array ko unpack karna vaiabble ke ander  destructuring
+        // in arrary index ke base per hoti ha
+
+        let frends = ["Hina", "Saba", "FAtima"];
+        // let [frend1, frend2 , frend3, frend4 = "unknown"] = frends;
+        // console.log(frend1);
+        // console.log(frend2);
+        // console.log(frend3);
+        // console.log(frend4);
+
+        let [frend1, ...frendx] = frends;
+        console.log(frends);
+
+        // Destructuring of object
+        // ak object ko diffrent varible mai brack kardena
+        // in object mai key ke base per hota ha
+        // in obj rest opprator ... sy phaly likhi howe value ke illawa baqi sb value ko show kare ga
+        
+
+        let me = {
+            name: "xyz",
+            email: "someone@.com",
+            mob: 1234568
+
+        }
+        // let { email, name } = me
+        // let { ...mob}= me
+        let { name, ...mob } = me  //{email: 'someone@.com', mob: 1234568}
+        //  console.log(email);  //someone@.com
+        //  console.log(name);    //xyz
+        console.log(mob);  //{name: 'xyz', email: 'someone@.com', mob: 1234568}
+
+        // spread operator
+       let fur = ["apple", "mango", "orange"];
+       let dryFur = ["almond",...fur, "peanut"];
+      console.log(dryFur);  //['almond', 'apple', 'mango', 'orange', 'peanut']
+
+     //    function getFur(a,b,c) {
+     //     console.log(a,b,c);
+        
+     //    }
+     //    getFur(...fur)
+     // let someFur = [...fur,...dryFur];
+     // console.log(someFur);
 
     
 
